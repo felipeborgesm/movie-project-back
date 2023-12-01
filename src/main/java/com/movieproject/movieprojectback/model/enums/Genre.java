@@ -10,7 +10,8 @@ public enum Genre {
     THRILLER_SUSPENSE("Thriller/Suspense"),
     HORROR("Horror"),
     ANIMACAO("Animação"),
-    ROMANCE("Romance");
+    ROMANCE("Romance"),
+    ANIME("Anime");
 
     private final String titulo;
 

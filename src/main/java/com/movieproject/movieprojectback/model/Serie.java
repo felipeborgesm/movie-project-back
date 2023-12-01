@@ -1,6 +1,6 @@
 package com.movieproject.movieprojectback.model;
 
-import com.movieproject.movieprojectback.dto.MovieRequest;
+import com.movieproject.movieprojectback.dto.SerieRequest;
 import com.movieproject.movieprojectback.model.enums.Genre;
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movie")
-@Entity(name = "movie")
+@Table(name = "serie")
+@Entity(name = "serie")
 @EqualsAndHashCode(of="id")
-public class Movie {
+public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,8 +23,8 @@ public class Movie {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "seasons", nullable = false)
+    private Integer seasons;
 
     @Column(name = "who_chose", nullable = false)
     private String whoChose;
@@ -39,10 +39,10 @@ public class Movie {
     @Column(name = "add_date")
     private LocalDateTime addDate;
 
-    public Movie (MovieRequest movieRequest) {
-        this.name = movieRequest.name();
-        this.description = movieRequest.description();
-        this.whoChose = movieRequest.whoChose();
-        this.genre = Genre.AVENTURA;
+    public Serie (SerieRequest serieRequest) {
+        this.name = serieRequest.name();
+        this.seasons = serieRequest.seasons();
+        this.whoChose = serieRequest.whoChose();
+        this.genre = Genre.ANIME;
     }
 }
